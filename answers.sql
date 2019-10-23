@@ -215,4 +215,9 @@ INNER JOIN orders AS o
 ON o.id = u.order_id
 WHERE u.id = 2;
 
-    -- Get the total amount on all orders for each user.
+    -- Get the total amount on all orders for each user. (Black Diamond)
+SELECT o.id, SUM(p.price)
+FROM products AS p
+INNER JOIN orders AS o
+ON p.id = o.id
+GROUP BY o.id;
